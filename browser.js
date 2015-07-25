@@ -1,5 +1,5 @@
 /*!
- * browser JavaScript Library v1.0
+ * browser JavaScript Library v1.1   
  * 
  *GitHub	：	https://github.com/kongdewen1994/browser.js.git
  * 
@@ -45,27 +45,27 @@ var client = function(){
 	
 	
 	//检测呈现引擎和浏览器
-	var ua = navigator.userAgent;
+	var ua = String.prototype.toLowerCase.call(window.navigator.userAgent);
 	if(window.opera){
 		
 		engine.ver = browser.ver = window.opera.version();
 		engine.opera = browser.opera = parseFloat(engine.ver);
 		
-	}else if(/AppleWebkit\/(\S+)/.test(ua)){
+	}else if(/applewebkit\/(\S+)/.test(ua)){
 	
 		
 		engine.ver = RegExp["$1"];
 		engine.webkit = parseFloat(engine.ver);
 		
+		
 		//确定是Chrome还是Safari
-		if(/Chrome\/(S+)/.test(ua)){
+		if(/chrome\/(\S+)/.test(ua)){
+			
+			engine.ver =  RegExp["$1"];
+			browser.chrome = parseFloat(engine.ver);
 		
 			
-			
-			engine.ver = RegExp["$1"];
-			engine.chrome = parseFloat(browser.ver);
-			
-		}else if(/Version\/(S+)/.test(ua)){
+		}else if(/version\/(\S+)/.test(ua)){
 		
 			browser.ver = RegExp["$1"];
 			browser.safari = parseFloat(browser.ver);
@@ -94,24 +94,24 @@ var client = function(){
 			
 			browser.safari = browser.ver = safariVersion;
 		}
-	}else if(/KHTML\/(S+)/.test(ua) || /Konqueror\/([^;]+)/.test(ua)){
+	}else if(/khtml\/(\S+)/.test(ua) || /konqueror\/([^;]+)/.test(ua)){
 		
 		engine.ver = browser.ver = RegExp["$1"];
 		engine.khtml = browser.konq = parseFloat(engine.ver);
 		
-	}else if(/rv:([^\)]+)\) Gecko\/\d{8}/.test(ua)){
+	}else if(/rv:([^\)]+)\) gecko\/\d{8}/.test(ua)){
 		
 		engine.ver = RegExp["$1"];
 		engine.gecko = parseFloat(engine.ver);
 		
 		//确认是不是Firefox
-		if(/Firefox\/(\S+)/.test(ua)){
+		if(/firefox\/(\S+)/.test(ua)){
 		
 			browser.ver = RegExp["$1"];
 			browser.firefox = parseFloat(browser.ver);
 			
 		}
-	}else if(/MSIE ([^;]+)/.test(ua)){
+	}else if(/msie ([^;]+)/.test(ua)){
 	
 		engine.ver = browser.ver = RegExp["$1"];
 		engine.ie = browser.ie = parseFloat(engine.ver);
