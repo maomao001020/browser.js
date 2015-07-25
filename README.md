@@ -1,6 +1,6 @@
 # browser.js
 判断浏览器和内核的工具（Determine the browser and the kernel of the tool）
-
+Date: 2015-07-25
 
 首先引入browser.js 返回 client 对象：
 
