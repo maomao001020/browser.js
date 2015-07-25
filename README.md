@@ -2,13 +2,13 @@
 判断浏览器和内核的工具（Determine the browser and the kernel of the tool）
 
 
-引入browser.js 返回 client 对象：
-
-<script src="./v.js" type="text/javascript"></script>
+首先引入browser.js 返回 client 对象：
 
 
 client 对象下有两个对象：engine 和 browser，如下：
-//呈现引擎
+
+
+    //呈现引擎
 	var engine = {
 		
 		ie:0,
